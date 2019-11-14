@@ -15,5 +15,6 @@ before_install:
   - go get golang.org/x/tools/cmd/cover
   - go get github.com/mattn/goveralls
 script:
-  - go test -failfast -coverpkg=./... -covermode=atomic -coverprofile=coverage.out $(go list ./... | grep -v /cmd/)
-  - $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci
+  - make test
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
