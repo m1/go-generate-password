@@ -100,7 +100,7 @@ func Test_buildCharacterSet(t *testing.T) {
 		want string
 	}{
 		{
-			name: "exclude similiar characters",
+			name: "exclude similar characters",
 			args: args{
 				config: &Config{
 					IncludeLowercaseLetters:    true,

@@ -211,9 +211,6 @@ func (g Generator) GenerateMany(amount int) ([]string, error) {
 			return nil, err
 		}
 
-
-
-
 		generated = append(generated, *str)
 	}
 	return generated, nil
