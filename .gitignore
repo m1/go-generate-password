@@ -1,3 +1,4 @@
 vendor
 memprofile.out
 profile.out
+coverage.out
