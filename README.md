@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/m1/go-generate-password.svg?branch=master)](https://travis-ci.org/m1/go-generate-password)
 [![Go Report Card](https://goreportcard.com/badge/github.com/m1/go-generate-password)](https://goreportcard.com/report/github.com/m1/go-generate-password)
 [![Release](https://img.shields.io/github/release/m1/go-generate-password.svg)](https://github.com/m1/go-generate-password/releases/latest)
-[![Coverage Status](https://coveralls.io/repos/github/m1/go-generate-password/badge.svg)](https://coveralls.io/github/m1/go-generate-password)
+[![codecov](https://codecov.io/gh/m1/go-generate-password/branch/master/graph/badge.svg)](https://codecov.io/gh/m1/go-generate-password)
 
 __Password generator written in Go.  Use as a [library](#library) or as a [CLI](#cli).__
 
