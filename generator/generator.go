@@ -9,16 +9,16 @@ import (
 
 const (
 	// LengthWeak weak length password
-	LengthWeak = 6
+	LengthWeak uint = 6
 
 	// LengthOK ok length password
-	LengthOK = 12
+	LengthOK uint = 12
 
 	// LengthStrong strong length password
-	LengthStrong = 24
+	LengthStrong uint = 24
 
 	// LengthVeryStrong very strong length password
-	LengthVeryStrong = 36
+	LengthVeryStrong uint = 36
 
 	// DefaultLetterSet is the letter set that is defaulted to - just the
 	// alphabet
@@ -73,7 +73,7 @@ type Generator struct {
 // what type of password to generate
 type Config struct {
 	// Length is the length of password to generate
-	Length int
+	Length uint
 
 	// CharacterSet is the setting to manually set the
 	// character set
@@ -191,7 +191,7 @@ func (g Generator) Generate() (*string, error) {
 	characterSet := strings.Split(g.Config.CharacterSet, "")
 	max := big.NewInt(int64(len(characterSet)))
 
-	for i := 0; i < g.Config.Length; i++ {
+	for i := uint(0); i < g.Config.Length; i++ {
 		val, err := rand.Int(rand.Reader, max)
 		if err != nil {
 			return nil, err
@@ -203,9 +203,9 @@ func (g Generator) Generate() (*string, error) {
 
 // GenerateMany generates multiple passwords with length set
 // in the config
-func (g Generator) GenerateMany(amount int) ([]string, error) {
+func (g Generator) GenerateMany(amount uint) ([]string, error) {
 	var generated []string
-	for i := 0; i < amount; i++ {
+	for i := uint(0); i < amount; i++ {
 		str, err := g.Generate()
 		if err != nil {
 			return nil, err
@@ -217,11 +217,11 @@ func (g Generator) GenerateMany(amount int) ([]string, error) {
 }
 
 // GenerateWithLength generate one password with set length
-func (g Generator) GenerateWithLength(length int) (*string, error) {
+func (g Generator) GenerateWithLength(length uint) (*string, error) {
 	var generated string
 	characterSet := strings.Split(g.Config.CharacterSet, "")
 	max := big.NewInt(int64(len(characterSet)))
-	for i := 0; i < length; i++ {
+	for i := uint(0); i < length; i++ {
 		val, err := rand.Int(rand.Reader, max)
 		if err != nil {
 			return nil, err
@@ -232,9 +232,9 @@ func (g Generator) GenerateWithLength(length int) (*string, error) {
 }
 
 // GenerateManyWithLength generates multiple passwords with set length
-func (g Generator) GenerateManyWithLength(amount, length int) ([]string, error) {
+func (g Generator) GenerateManyWithLength(amount, length uint) ([]string, error) {
 	var generated []string
-	for i := 0; i < amount; i++ {
+	for i := uint(0); i < amount; i++ {
 		str, err := g.GenerateWithLength(length)
 		if err != nil {
 			return nil, err

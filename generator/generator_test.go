@@ -162,7 +162,7 @@ func TestGenerator_Generate(t *testing.T) {
 			name:   "valid",
 			fields: fields{&DefaultConfig},
 			test: func(pwd *string, characterSet string) {
-				assert.Len(t, *pwd, DefaultConfig.Length)
+				assert.Len(t, *pwd, int(DefaultConfig.Length))
 				err := stringMatchesCharacters(*pwd, characterSet)
 				if err != nil {
 					t.Errorf("Generate() error = %v", err)
@@ -189,7 +189,7 @@ func TestGenerator_GenerateMany(t *testing.T) {
 		Config *Config
 	}
 	type args struct {
-		amount int
+		amount uint
 	}
 	tests := []struct {
 		name    string
@@ -253,7 +253,7 @@ func TestGenerator_GenerateWithLength(t *testing.T) {
 		Config *Config
 	}
 	type args struct {
-		length int
+		length uint
 	}
 	tests := []struct {
 		name    string
@@ -294,8 +294,8 @@ func TestGenerator_GenerateManyWithLength(t *testing.T) {
 		Config *Config
 	}
 	type args struct {
-		amount int
-		length int
+		amount uint
+		length uint
 	}
 	tests := []struct {
 		name    string

@@ -11,7 +11,7 @@ import (
 
 var (
 	rootCmd                    *cobra.Command
-	length                     int
+	length                     uint
 	characterSet               string
 	includeSymbols             bool
 	includeNumbers             bool
@@ -19,7 +19,7 @@ var (
 	includeUppercaseLetters    bool
 	excludeSimilarCharacters   bool
 	excludeAmbiguousCharacters bool
-	times                      int
+	times                      uint
 )
 
 func main() {
@@ -30,7 +30,7 @@ func main() {
 		Long:  "go-generate-password is a password generating engine written in Go.",
 	}
 
-	rootCmd.PersistentFlags().IntVarP(&length, "length", "l", generator.DefaultConfig.Length, "Length of the password")
+	rootCmd.PersistentFlags().UintVarP(&length, "length", "l", generator.DefaultConfig.Length, "Length of the password")
 	rootCmd.PersistentFlags().StringVar(&characterSet, "characters", generator.DefaultConfig.CharacterSet, "Character set for the config")
 	rootCmd.PersistentFlags().BoolVar(&includeSymbols, "symbols", generator.DefaultConfig.IncludeSymbols, "Include symbols")
 	rootCmd.PersistentFlags().BoolVar(&includeNumbers, "numbers", generator.DefaultConfig.IncludeNumbers, "Include numbers")
@@ -38,7 +38,7 @@ func main() {
 	rootCmd.PersistentFlags().BoolVar(&includeUppercaseLetters, "uppercase", generator.DefaultConfig.IncludeSymbols, "Include uppercase letters")
 	rootCmd.PersistentFlags().BoolVar(&excludeSimilarCharacters, "exclude-similar", generator.DefaultConfig.ExcludeSimilarCharacters, "Exclude similar characters")
 	rootCmd.PersistentFlags().BoolVar(&excludeAmbiguousCharacters, "exclude-ambiguous", generator.DefaultConfig.ExcludeAmbiguousCharacters, "Exclude ambiguous characters")
-	rootCmd.PersistentFlags().IntVarP(&times, "times", "n", 1, "How many passwords to generate")
+	rootCmd.PersistentFlags().UintVarP(&times, "times", "n", 1, "How many passwords to generate")
 
 	err := rootCmd.Execute()
 	if err != nil {
